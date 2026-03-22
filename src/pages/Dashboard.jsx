@@ -72,6 +72,21 @@ const tools = [
     badge: "New",
   },
   {
+    name: "Flashcard Generator",
+    path: "/flashcard-generator",
+    desc: "Generate smart flashcards from any text or document to study faster.",
+    icon: (
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+        <rect x="2" y="3" width="10" height="7" rx="1"/>
+        <rect x="12" y="3" width="10" height="7" rx="1"/>
+        <rect x="2" y="14" width="10" height="7" rx="1"/>
+        <rect x="12" y="14" width="10" height="7" rx="1"/>
+      </svg>
+    ),
+    color: "bg-orange-100 text-orange-600",
+    badge: "New",
+  },
+  {
     name: "Code Explainer",
     path: "/code-explainer",
     desc: "Paste any code snippet and get a plain-English breakdown instantly.",
@@ -128,7 +143,7 @@ const tools = [
 ];
 
 const stats = [
-  { label: "AI Tools",         value: "9",    icon: "⚡" },
+  { label: "AI Tools",         value: "10",   icon: "⚡" },
   { label: "Always Available", value: "24/7", icon: "🕐" },
   { label: "Accuracy",         value: "99%",  icon: "🎯" },
   { label: "Students Using",   value: "10K+", icon: "🎓" },
@@ -139,12 +154,11 @@ export default function Dashboard() {
 
   return (
     <div className="flex bg-[#F8FAFC] min-h-screen">
-    
 
       <div className="flex-1 overflow-y-auto">
 
         {/* Header */}
-        <div className="bg-white border-b border-gray-200 px-10 py-6 flex items-center justify-between">
+        <div className="bg-white border-b border-gray-200 px-4 md:px-10 py-6 flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
             <p className="text-sm text-gray-400 mt-0.5">
@@ -156,7 +170,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="px-10 py-8 space-y-8">
+        <div className="px-4 md:px-10 py-8 space-y-8">
 
           {/* Stats Row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -200,7 +214,6 @@ export default function Dashboard() {
                   onMouseLeave={() => setHoveredIndex(null)}
                   className="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:border-purple-200 transition-all cursor-pointer group"
                 >
-                  {/* Top Row */}
                   <div className="flex items-start justify-between mb-4">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${tool.color}`}>
                       {tool.icon}
@@ -216,7 +229,6 @@ export default function Dashboard() {
                     )}
                   </div>
 
-                  {/* Text */}
                   <h3 className="font-bold text-gray-800 mb-1 group-hover:text-[#6C63FF] transition-colors">
                     {tool.name}
                   </h3>
@@ -224,7 +236,6 @@ export default function Dashboard() {
                     {tool.desc}
                   </p>
 
-                  {/* Footer */}
                   <Link to={tool.path}>
                     <button className="w-full bg-[#F3F2FF] text-[#6C63FF] text-sm font-semibold py-2 rounded-xl hover:bg-[#6C63FF] hover:text-white transition-all">
                       Open Tool →
